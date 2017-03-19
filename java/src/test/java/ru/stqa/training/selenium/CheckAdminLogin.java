@@ -6,8 +6,13 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
 
 import static java.lang.Thread.sleep;
 
@@ -15,6 +20,7 @@ public class CheckAdminLogin {
 
     private WebDriver driver;
     private WebDriverWait wait;
+
 
     @Before
     public void start() {
@@ -32,10 +38,12 @@ public class CheckAdminLogin {
                 "Appearence"));
     }
 
+
     @After
     public void stop() {
         driver.quit();
         driver = null;
+
     }
 }
 
