@@ -15,7 +15,7 @@ public class CheckNavigationMenu extends CommonSeleniumTest {
         loginToLitecard();
 
         final int numberOfMainMenuElments = driver.findElements(By.cssSelector("[id^=app-]")).size();
-        for(int elementIndex = 8; elementIndex <= numberOfMainMenuElments; elementIndex++) {
+        for(int elementIndex = 1; elementIndex <= numberOfMainMenuElments; elementIndex++) {
             WebElement element = driver.findElement(By.cssSelector("[id^=app-]:nth-child(" + elementIndex + ")")) ;
             element.click();
             checkH1HeaderIsPresent(driver);
@@ -47,13 +47,5 @@ public class CheckNavigationMenu extends CommonSeleniumTest {
         Assert.assertTrue("At least 1 header should be present", headers.size() > 0);
     }
 
-    /**
-     * Connects to Litecard site as admin user
-     */
-    public void loginToLitecard() {
-        driver.get("http://localhost/litecart/admin/");
-        driver.findElement(By.name("username")).sendKeys("admin");
-        driver.findElement(By.name("password")).sendKeys("admin");
-        driver.findElement(By.name("login")).click();
-    }
+
 }

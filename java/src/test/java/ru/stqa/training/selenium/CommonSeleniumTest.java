@@ -44,4 +44,14 @@ public class CommonSeleniumTest {
     public  boolean areElementsPresent(WebDriver driver, By locator) {
         return driver.findElements(locator).size() > 0;
     }
+
+    /**
+     * Connects to Litecard site as admin user
+     */
+    public void loginToLitecard() {
+        driver.get("http://localhost/litecart/admin/");
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("admin");
+        driver.findElement(By.name("login")).click();
+    }
 }
