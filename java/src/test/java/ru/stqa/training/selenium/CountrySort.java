@@ -54,7 +54,7 @@ public class CountrySort extends CommonSeleniumTest {
     }
 
     /**
-     * Checks that countries are sorted alphabetically
+     * Checks that zones of country have sorted alphabetically
      */
     @Test
     public void geoZoneSort() {
@@ -71,7 +71,7 @@ public class CountrySort extends CommonSeleniumTest {
     }
 
     /**
-     * Checks that zones for country have sorted alphabetically
+     * Checks that zones of country have sorted alphabetically
      *
      * @param driver {@code WebDriver} instance
      */
