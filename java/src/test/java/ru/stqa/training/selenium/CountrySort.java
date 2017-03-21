@@ -13,6 +13,9 @@ import java.util.*;
  */
 public class CountrySort extends CommonSeleniumTest {
 
+    /**
+     * Checks that countries are sorted alphabetically
+     */
     @Test
     public void countrySort() {
         loginToLitecard();
@@ -35,14 +38,8 @@ public class CountrySort extends CommonSeleniumTest {
 
         for (Integer element : countriesToCheck) {
             WebElement country = driver.findElement(By.cssSelector("[class=row]:nth-child(" + element + ") a:not([title=Edit])"));
-            System.out.println(country.getAttribute("textContent"));
             country.click();
-
-
             checkCountryZones(driver);
-
-
-
             driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
         }
 
@@ -56,6 +53,28 @@ public class CountrySort extends CommonSeleniumTest {
         }
     }
 
+    /**
+     * Checks that countries are sorted alphabetically
+     */
+    @Test
+    public void geoZoneSort() {
+        loginToLitecard();
+
+        driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
+
+        List<WebElement> countries = driver.findElements(By.cssSelector("[class=row] a:not([title=Edit])"));
+        for (WebElement country :  countries) {
+            country.click();
+            checkCountryZones(driver);
+            driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
+        }
+    }
+
+    /**
+     * Checks that zones for country have sorted alphabetically
+     *
+     * @param driver {@code WebDriver} instance
+     */
     public void checkCountryZones(WebDriver driver) {
         List<String> zones = new LinkedList<>();
         List<WebElement> zoneElements = driver.findElements(By.cssSelector("[id=table-zones] > tr:not([class=header])"));
