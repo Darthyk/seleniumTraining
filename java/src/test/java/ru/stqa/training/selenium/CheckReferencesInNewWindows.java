@@ -16,7 +16,7 @@ import java.util.Set;
 public class CheckReferencesInNewWindows extends CommonSeleniumTest {
 
     /**
-     * Checks links which should be open in another window
+     * Checks links which should be opened in another window
      */
     @Test
     public void checkReferencesInNewWindows() {
